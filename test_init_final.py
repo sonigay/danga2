@@ -1835,6 +1835,9 @@ while True:
 			
 			if message.content == command[16] :
 				await client.get_channel(channel).send(embed=regenembed, tts=False)
+				
+				if message.content.startswith('!안녕'):
+					await client.send_message(message.channel, "이번 당첨자 분은")
 
 			################ 명존쎄 ################ 
 
