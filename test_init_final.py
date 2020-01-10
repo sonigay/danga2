@@ -1894,27 +1894,21 @@ while True:
 
 			################ 정산확인 ################ 
 
-
-	async def on_message(message):
-		if message.channel.is_private and message.author != "661406173421109271":			  
 			if message.content.startswith(command[12]):
 				if basicSetting[10] !="" and basicSetting[12] !="" and basicSetting[14] !="" and basicSetting[15] !="" and basicSetting[16] !=""  :
-					SearchID = hello[len(command[12])+1:]
-					tmp_sayMessage = message.content
-					sayMessage = tmp_sayMessage[4:]
-					gc = gspread.authorize(credentials)
-					
-					wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
+							SearchID = message.content[len(command[12])+1:]
+							gc = gspread.authorize(credentials)
+							wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
-					wks.update_acell(basicSetting[15], SearchID)
+							wks.update_acell(basicSetting[15], SearchID)
 
-					result = wks.acell(basicSetting[16]).value
+							result = wks.acell(basicSetting[16]).value
 
-					embed = discord.Embed(
-							description= '```' + SearchID + ' 님이 받을 다이야는 ' + result + ' 다이야 입니다.```',
-							color=0xff00ff
-							)
-					await client.send_message(discord.utils.get(client.get_all_memvers(), id="661406173421109271", message.author.name + "(" +message.author.id + ") : " + message.content)
+							embed = discord.Embed(
+									description= '```' + SearchID + ' 님이 받을 다이야는 ' + result + ' 다이야 입니다.```',
+									color=0xff00ff
+									)
+							await msg.channel.send(embed=embed, tts=False)
 
 	client.loop.create_task(task())
 	try:
