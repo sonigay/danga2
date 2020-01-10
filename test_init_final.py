@@ -1893,9 +1893,9 @@ while True:
 
 
 			################ 정산확인 ################ 
-@client.event
-async def on_message(message):
 
+
+	async def on_message(message):
 		if message.channel.is_private and message.author != "661406173421109271":			  
 			if message.content.startswith(command[12]):
 				if basicSetting[10] !="" and basicSetting[12] !="" and basicSetting[14] !="" and basicSetting[15] !="" and basicSetting[16] !=""  :
