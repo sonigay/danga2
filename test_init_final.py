@@ -1894,9 +1894,11 @@ while True:
 
 			################ 정산확인 ################ 
 
-			if message.content.startswith(command[12]):
+			if message.content.startswith("!정책 "):
 				if basicSetting[10] !="" and basicSetting[12] !="" and basicSetting[14] !="" and basicSetting[15] !="" and basicSetting[16] !=""  :
 					SearchID = hello[len(command[12])+1:]
+					tmp_sayMessage = message.content
+					sayMessage = tmp_sayMessage[4:]
 					gc = gspread.authorize(credentials)
 					user = client.get_user(message.author.id)
 					wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
