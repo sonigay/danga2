@@ -979,7 +979,7 @@ while True:
 									description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
 									color=0xff00ff
 									)
-							await msg.channel.send(embed=embed, tts=False)
+							await msg.channel.send(embed=embed, tts=TRUE)
 		else :
 			message = await client.get_channel(channel).fetch_message(msg.id)
 			
