@@ -1354,7 +1354,7 @@ while True:
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[len(command[15])+1:]
 				result = wks.acell(basicSetting[16]).value
-				await MakeSound(message.author.display_name +'님이 조회하신' + sayMessage +'단가는' + result +'입니다' +, './sound/say')
+				await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
 				await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
 				await PlaySound(voice_client1, './sound/say.wav')
 
