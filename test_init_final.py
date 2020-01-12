@@ -1411,7 +1411,7 @@ while True:
 
 						contents = repo.get_contents("test_setting.ini")
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
-						user = client.get_user(message.author.id)
+						
 
 					elif basicSetting[6] != int(voice_channel.id):
 						inidata_voiceCH = repo.get_contents("test_setting.ini")
@@ -1428,10 +1428,10 @@ while True:
 						contents = repo.get_contents("test_setting.ini")
 						
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
-						user = client.get_user(message.author.id)
+						
 
 					await JointheVC(voice_channel, channel)
-					await user.send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
+					await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
 						
