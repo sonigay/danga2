@@ -976,7 +976,7 @@ while True:
 							result = wks.acell(basicSetting[16]).value
 							tmp_sayMessage = message.content
 							sayMessage = tmp_sayMessage[len(command[12])+1:]
-							await MakeSound('조회하신 ' + sayMessage + '단가는' + result + '', './sound/say')
+							await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 							await PlaySound(voice_client1, './sound/say.wav')
 
 							embed = discord.Embed(
@@ -1914,7 +1914,7 @@ while True:
 					result = wks.acell(basicSetting[16]).value
 					tmp_sayMessage = message.content
 					sayMessage = tmp_sayMessage[len(command[12])+1:]
-					await MakeSound('조회하신 ' + sayMessage + '단가는' + result + '', './sound/say')
+					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
