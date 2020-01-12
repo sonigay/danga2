@@ -971,15 +971,20 @@ while True:
 							wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
 							wks.update_acell(basicSetting[15], SearchID)
+							user = client.get_user(message.author.id)
 
 							result = wks.acell(basicSetting[16]).value
+							tmp_sayMessage = message.content
+							sayMessage = tmp_sayMessage[len(command[12])+1:]
+							await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
+							await PlaySound(voice_client1, './sound/say.wav')
 
 							embed = discord.Embed(
-									title = ' 안녕  ' + SearchID + ' 안내 ',
+									title = ' :signal_strength:  ' + SearchID + ' 안내 ',
 									description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
-									color=0xff00ff
+									color=0xFFFF00
 									)
-							await msg.channel.send(embed=embed, tts=False)
+							await user.send(embed=embed, tts=False)
 		else :
 			message = await client.get_channel(channel).fetch_message(msg.id)
 			
