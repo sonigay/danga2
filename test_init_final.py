@@ -1902,6 +1902,7 @@ while True:
 					wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
 					wks.update_acell(basicSetting[15], SearchID)
+					user = client.get_user(message.author.id)
 
 					result = wks.acell(basicSetting[16]).value
 					tmp_sayMessage = message.content
@@ -1910,10 +1911,11 @@ while True:
 					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
+							title = ' :globe_with_meridians:  ' + SearchID + ' 안내 ',
 							description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
 							color=0xff00ff
 							)
-					await msg.channel.send(embed=embed, tts=False)
+					await user.send(embed=embed, tts=False)
 
 	client.loop.create_task(task())
 	try:
