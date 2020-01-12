@@ -1387,7 +1387,7 @@ while True:
 
 			if message.content == command[4] or message.content == command[12]:
 				if message.author.voice == None:
-					await client.get_channel(channel).send('음성채널에 먼저 들어가주세요.', tts=False)
+					await client.get_channel(channel).send('음성안내는 음성방에 입장하셔야 안내합니다.', tts=False)
 				else:
 					voice_channel = message.author.voice.channel
 
@@ -1421,10 +1421,11 @@ while True:
 						result_voiceCH = '\n'.join(inputData_voiceCH)
 
 						contents = repo.get_contents("test_setting.ini")
+						user = client.get_user(message.author.id)
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
 
 					await JointheVC(voice_channel, channel)
-					await client.get_channel(channel).send('< 음성채널 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
+					await user.send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
 						
@@ -1911,9 +1912,9 @@ while True:
 					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
-							title = ' :globe_with_meridians:  ' + SearchID + ' 안내 ',
+							title = ' :signal_strength:  ' + SearchID + ' 안내 ',
 							description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
-							color=0xff00ff
+							color=0xFFFF00
 							)
 					await user.send(embed=embed, tts=False)
 
