@@ -976,12 +976,12 @@ while True:
 							result = wks.acell(basicSetting[16]).value
 							tmp_sayMessage = message.content
 							sayMessage = tmp_sayMessage[len(command[12])+1:]
-							await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
+							await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '', './sound/say')
 							await PlaySound(voice_client1, './sound/say.wav')
 
 							embed = discord.Embed(
 									title = ' :signal_strength:  ' + SearchID + ' 안내 ',
-									description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
+									description= '```' + SearchID + ' 단가는 ' + result + '```',
 									color=0xFFFF00
 									)
 							await user.send(embed=embed, tts=False)
@@ -1914,12 +1914,12 @@ while True:
 					result = wks.acell(basicSetting[16]).value
 					tmp_sayMessage = message.content
 					sayMessage = tmp_sayMessage[len(command[12])+1:]
-					await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
+					await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
 							title = ' :signal_strength:  ' + SearchID + ' 안내 ',
-							description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
+							description= '```' + SearchID + ' 단가는 ' + result + '```',
 							color=0xFFFF00
 							)
 					await user.send(embed=embed, tts=False)
