@@ -1385,7 +1385,7 @@ while True:
 				
 			################ 보탐봇 음성채널 소환 ################ 
 
-			if message.content == command[4]:
+			if message.content == command[4] or command[12]:
 				if message.author.voice == None:
 					await client.get_channel(channel).send('음성채널에 먼저 들어가주세요.', tts=False)
 				else:
