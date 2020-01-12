@@ -1392,7 +1392,7 @@ while True:
 
 			if message.content.startswith(command[12]) or message.content.startswith(command[4]):
 				if message.author.voice == None:
-					await client.get_channel(channel).send('음성안내는 음성방에 입장하셔야 안내합니다.', tts=False)
+					await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
 				else:
 					voice_channel = message.author.voice.channel
 
