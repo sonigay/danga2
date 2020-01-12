@@ -1350,10 +1350,11 @@ while True:
 
 			################ 음성파일 생성 후 재생 ################ 			
 				
-			if message.content.startswith(command[15]) or message.content.startswith('!ㅍ') or message.content.startswith('!V'):
+			if message.content.startswith(command[15]) or message.content.startswith('!ㅍ') or message.content.startswith('!단가') or message.content.startswith('!V'):
 				tmp_sayMessage = message.content
 				sayMessage = tmp_sayMessage[len(command[15])+1:]
-				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
+				result = wks.acell(basicSetting[16]).value
+				await MakeSound(message.author.display_name +'님이 조회하신' + sayMessage +'단가는' + result +'입니다' +, './sound/say')
 				await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
 				await PlaySound(voice_client1, './sound/say.wav')
 
