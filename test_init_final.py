@@ -1385,7 +1385,7 @@ while True:
 				
 			################ 보탐봇 음성채널 소환 ################ 
 
-			if message.content == command[12] or message.content == command[4]:
+			if message.content == command[4][0:] or message.content == command[12][0:]:
 				if message.author.voice == None:
 					await client.get_channel(channel).send('음성안내는 음성방에 입장하셔야 안내합니다.', tts=False)
 				else:
@@ -1419,10 +1419,10 @@ while True:
 								basicSetting[6] = int(voice_channel.id)
 
 						result_voiceCH = '\n'.join(inputData_voiceCH)
-						user = client.get_user(message.author.id)
 						contents = repo.get_contents("test_setting.ini")
 						
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
+						user = client.get_user(message.author.id)
 
 					await JointheVC(voice_channel, channel)
 					await user.send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
