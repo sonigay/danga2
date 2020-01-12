@@ -1350,16 +1350,12 @@ while True:
 
 			################ 음성파일 생성 후 재생 ################ 			
 				
-			if message.content.startswith(command[15]) or message.content.startswith('!ㅍ') or message.content.startswith('!단가') or message.content.startswith('!V'):
-				if basicSetting[10] !="" and basicSetting[12] !="" and basicSetting[14] !="" and basicSetting[15] !="" and basicSetting[16] !=""  :
-					gc = gspread.authorize(credentials)
-					wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
-					tmp_sayMessage = message.content
-					sayMessage = tmp_sayMessage[len(command[15])+1:]
-					result = wks.acell(basicSetting[16]).value
-					await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
-					await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
-					await PlaySound(voice_client1, './sound/say.wav')
+			if message.content.startswith(command[15]) or message.content.startswith('!ㅍ') or message.content.startswith('!V'):
+				tmp_sayMessage = message.content
+				sayMessage = tmp_sayMessage[len(command[15])+1:]
+				await MakeSound(message.author.display_name +'님이.' + sayMessage, './sound/say')
+				await client.get_channel(channel).send("```< " + msg.author.display_name + " >님이 \"" + sayMessage + "\"```", tts=False)
+				await PlaySound(voice_client1, './sound/say.wav')
 
 			################ 보탐봇 재시작 ################ 
 
@@ -1908,6 +1904,9 @@ while True:
 					wks.update_acell(basicSetting[15], SearchID)
 
 					result = wks.acell(basicSetting[16]).value
+					sayMessage = tmp_sayMessage[len(command[12])+1:]
+					await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
+					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
 							description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
