@@ -849,7 +849,7 @@ async def on_ready():
 
 	# 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
 	# 이 기능을 사용하여 봇의 상태를 간단하게 출력해줄 수 있습니다.
-	await client.change_presence(status=discord.Status.dnd, activity=discord.Game(name="준비", type=1), afk=False)
+	await client.change_presence(status=discord.Status.dnd, activity=discord.Game(name="단가 안내", type=1), afk=False)
 
 while True:
 	# 봇이 새로운 메시지를 수신했을때 동작되는 코드입니다.
@@ -979,7 +979,7 @@ while True:
 									description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
 									color=0xff00ff
 									)
-							await msg.channel.send(embed=embed, tts=TRUE)
+							await msg.channel.send(embed=embed, tts=True)
 		else :
 			message = await client.get_channel(channel).fetch_message(msg.id)
 			
@@ -1909,7 +1909,7 @@ while True:
 							description= '```' + SearchID + ' 단가는 ' + result + ' 입니다.```',
 							color=0xff00ff
 							)
-					await msg.channel.send(embed=embed, tts=TRUE)
+					await msg.channel.send(embed=embed, tts=True)
 
 	client.loop.create_task(task())
 	try:
