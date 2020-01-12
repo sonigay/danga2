@@ -1904,6 +1904,7 @@ while True:
 					wks.update_acell(basicSetting[15], SearchID)
 
 					result = wks.acell(basicSetting[16]).value
+					tmp_sayMessage = message.content
 					sayMessage = tmp_sayMessage[len(command[12])+1:]
 					await MakeSound(message.author.display_name + '님이 조회하신' + sayMessage + '단가는' + result + '입니다', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
