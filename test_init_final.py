@@ -982,7 +982,7 @@ while True:
 							embed = discord.Embed(
 									title = ' :signal_strength:  ' + SearchID + ' 안내 ',
 									description= '```' + SearchID + ' 단가는 ' + result + '```',
-									color=0xFFFF00
+									color=0xddffff
 									)
 							await user.send(embed=embed, tts=False)
 		else :
@@ -1920,7 +1920,7 @@ while True:
 					embed = discord.Embed(
 							title = ' :signal_strength:  ' + SearchID + ' 안내 ',
 							description= '```' + SearchID + ' 단가는 ' + result + '```',
-							color=0xFFFF00
+							color=0xddffff
 							)
 					await user.send(embed=embed, tts=False)
 
