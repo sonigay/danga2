@@ -976,8 +976,6 @@ while True:
 							result = wks.acell(basicSetting[16]).value
 							tmp_sayMessage = message.content
 							sayMessage = tmp_sayMessage[len(command[12])+1:]
-							await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
-							await PlaySound(voice_client1, './sound/say.wav')
 
 							embed = discord.Embed(
 									title = ' :signal_strength:  ' + SearchID + ' 안내 ',
@@ -985,6 +983,8 @@ while True:
 									color=0xddffff
 									)
 							await user.send(embed=embed, tts=False)
+							await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
+							await PlaySound(voice_client1, './sound/say.wav')
 		else :
 			message = await client.get_channel(channel).fetch_message(msg.id)
 			
@@ -1914,8 +1914,6 @@ while True:
 					result = wks.acell(basicSetting[16]).value
 					tmp_sayMessage = message.content
 					sayMessage = tmp_sayMessage[len(command[12])+1:]
-					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
-					await PlaySound(voice_client1, './sound/say.wav')
 
 					embed = discord.Embed(
 							title = ' :signal_strength:  ' + SearchID + ' 안내 ',
@@ -1923,6 +1921,8 @@ while True:
 							color=0xddffff
 							)
 					await user.send(embed=embed, tts=False)
+					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
+					await PlaySound(voice_client1, './sound/say.wav')
 
 	client.loop.create_task(task())
 	try:
