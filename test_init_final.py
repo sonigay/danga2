@@ -1927,8 +1927,8 @@ while True:
 
 					
 					
-			if message.content.startswith('!단가표'):
-				SearchID = hello[len('!단가표')+1:]
+			if message.content.startswith('!정책표'):
+				SearchID = hello[len('!정책표')+1:]
 				gc = gspread.authorize(credentials)
 				wks = gc.open('VIP정책수정').worksheet('시트23')
 				list_of_lists = wks.aet_all_values()
