@@ -1933,10 +1933,10 @@ while True:
 				wks = gc.open('VIP정책수정').worksheet('시트23')
 				user = client.get_user(message.author.id)
 				list_of_lists = wks.get_all_values()
-				df = pd.DataFrame(list_of_lists)
+				df = pd.DataFrame(list_of_lists, columns=list_of_lists[0])
 				
 
-				await user.send(message.channel, df, tts=False)
+				await user.send(df, tts=False)
 					
 					
 					
