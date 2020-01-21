@@ -1936,7 +1936,7 @@ while True:
 				df = pd.DataFrame(list_of_lists)
 				
 
-				await user.send(message.channel, tts=False)
+				await user.send(message.channel, df, tts=False)
 					
 					
 					
