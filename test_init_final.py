@@ -1931,7 +1931,7 @@ while True:
 				SearchID = hello[len('!정책표')+1:]
 				gc = gspread.authorize(credentials)
 				wks = gc.open('VIP정책수정').worksheet('시트23')
-				list_of_lists = wks.aet_all_values()
+				list_of_lists = wks.et_all_values()
 				df = pd.DataFrame(list_of_lists)
 				
 				embed = discord.Embed(
