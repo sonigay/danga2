@@ -1935,12 +1935,8 @@ while True:
 				list_of_lists = wks.get_all_values()
 				df = pd.DataFrame(list_of_lists)
 				
-				embed = discord.Embed(
-						title = ' :signal_strength:  ' + SearchID + ' 안내 ',
-						description= '```' + SearchID + ' 단가는 ' + df + '```',
-						color=0xddffff
-						)
-				await user.send(embed=embed, tts=False)
+
+				await user.send(message.channel, tts=False)
 					
 					
 					
