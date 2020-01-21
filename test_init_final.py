@@ -19,6 +19,7 @@ import gspread #정산
 from oauth2client.service_account import ServiceAccountCredentials #정산
 from io import StringIO
 import urllib.request
+import pandas as pd
 
 ##################### 로깅 ###########################
 log_stream = StringIO()    
@@ -1924,6 +1925,31 @@ while True:
 					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
 
+					
+					
+			if message.content.startswith('!단가표'):
+				SearchID = hello[len('!단가표')+1:]
+				gc = gspread.authorize(credentials)
+				wks = gc.open('VIP정책수정').worksheet('시트23')
+				list_of_lists = wks.aet_all_values()
+				df = pd.DataFrame(list_of_lists)
+				
+				embed = discord.Embed(
+						title = ' :signal_strength:  ' + SearchID + ' 안내 ',
+						description= '```' + SearchID + ' 단가는 ' + df + '```',
+						color=0xddffff
+						)
+				await user.send(embed=embed, tts=False)
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 	client.loop.create_task(task())
 	try:
 		client.loop.run_until_complete(client.start(access_token))
