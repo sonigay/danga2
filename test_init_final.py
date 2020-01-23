@@ -1932,12 +1932,12 @@ while True:
 				gc = gspread.authorize(credentials)
 				wks = gc.open('VIP정책수정').worksheet('시트23')
 				user = client.get_user(message.author.id)
-				list_of_lists = wks.get_all_values()
-				df = pd.DataFrame(list_of_lists, columns=list_of_lists[0])
-				df = df.reindex(df,index.drop(0))
+				wks2 = wks.get_all_values()
+				wks2 = pd.DataFrame(wks2, columns=wks2[0])
+				wks2 = wks2.reindex(wks2,index.drop(0))
 				
 
-				await user.send(df, tts=False)
+				await user.send(wks2, tts=False)
 					
 					
 					
