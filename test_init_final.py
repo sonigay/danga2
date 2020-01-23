@@ -1934,6 +1934,7 @@ while True:
 				user = client.get_user(message.author.id)
 				list_of_lists = wks.get_all_values()
 				df = pd.DataFrame(list_of_lists, columns=list_of_lists[0])
+				df = df.reindex(df,index.drop(0))
 				
 
 				await user.send(df, tts=False)
