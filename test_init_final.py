@@ -1402,7 +1402,7 @@ while True:
 			if client.get_channel(channel) != msg.channel:
 				if basicSetting[7] == msg.channel:
 					if msg.channel.id == int(basicSetting[7]) : #### 텍스트채널 아이디
-						message = await msg.channel.fetch_message(msg.id)
+						await msg.channel.fetch_message(msg.id)
 						if message.content.startswith(command[12]) or message.content.startswith(command[4]):
 							if message.author.voice == None:
 								await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
