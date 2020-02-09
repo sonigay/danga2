@@ -997,7 +997,7 @@ while True:
 			
 			################ 텍스트 정보확인 ################ 
 
-			if message.content == command[2]:
+			if msg.content == command[2]:
 				ch_information = ''
 				for i in range(len(channel_name)):
 					ch_information += '[' + channel_id[i] + '] ' + channel_name[i] + '\n'
