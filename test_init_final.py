@@ -979,8 +979,7 @@ while True:
 								wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
 								wks.update_acell(basicSetting[15], SearchID)
-								channel = message.channel
-
+								
 								result = wks.acell(basicSetting[16]).value
 								tmp_sayMessage = message.content
 								sayMessage = tmp_sayMessage[len(command[12])+1:]
@@ -990,7 +989,7 @@ while True:
 										description= '```' + SearchID + ' 단가는 ' + result + '```',
 										color=0xddffff
 										)
-								await client.get_channel(channel).send(embed=embed, tts=False)
+								await client.get_channel(msg.channel.id).send(embed=embed, tts=False)
 								await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 								await PlaySound(voice_client1, './sound/say.wav')
 		#	else :
@@ -1432,7 +1431,6 @@ while True:
 									file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
 									file_data_voiceCH = file_data_voiceCH.decode('utf-8')
 									inputData_voiceCH = file_data_voiceCH.split('\n')
-									channel = message.channel
 
 									for i in range(len(inputData_voiceCH)):
 										if inputData_voiceCH[i] == 'voicechannel = ' + str(basicSetting[6]) + '\r':
@@ -1446,7 +1444,7 @@ while True:
 						
 
 								await JointheVC(voice_channel, channel)
-								await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
+								await client.get_channel(msg.channel.id).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
 						
