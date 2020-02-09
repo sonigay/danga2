@@ -949,10 +949,10 @@ while True:
 				print('< 보탐봇 재시작 설정안됨 >')
 			chflg = 1
 			
-		if client.get_channel(channel) != msg.channel:
+		if client.get_channel(channel) != msg.channel: # 입력되어있는 사다리 채널과 메시지 채널이 다르다면
 			##### 사다리 채널바꾸기
-			if  basicSetting[8] != "":
-				if msg.channel.id == int(basicSetting[8]): #### 사다리 채널ID 값넣으면 됨
+			if  basicSetting[8] != "": # 입력되어있는 사다리 채널에 채널아이디값이 없지 않다면
+				if msg.channel.id == int(basicSetting[8]): #### 사다리 채널ID 값넣으면 됨 (사다리 채널은 입력된 사다리 채널과 같다면)
 					message = await msg.channel.fetch_message(msg.id)
 					##################################
 
@@ -964,9 +964,9 @@ while True:
 						await LadderFunc(num_cong, ladder, msg.channel)
 			
 			##################################
-			if client.get_channel(channel) != msg.channel:
-				if basicSetting[11] == msg.channel:
-					if msg.channel.id == int(basicSetting[11]) : #### 정산채널 채널ID 값넣으면 됨
+			if client.get_channel(channel) != msg.channel: # 입력되어있는 정산 채널과 메시지 채널이 다르다면
+				if basicSetting[11] != "": # 입력되어있는 정산 채널에 채널아이디값이 없지 않다면
+					if msg.channel.id == int(msg.channel.id) : #### 정산채널 채널ID 값넣으면 됨
 						message = await msg.channel.fetch_message(msg.id)
 
 					################ 정산확인 ################ 
@@ -993,12 +993,12 @@ while True:
 								await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 								await PlaySound(voice_client1, './sound/say.wav')
 			else :
-				await client.get_channel(channel).fetch_message(msg.id)
+				message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
 		
 
-			if msg.content == command[2]:
+			if message.content == command[2]:
 				ch_information = ''
 				for i in range(len(channel_name)):
 					ch_information += '[' + channel_id[i] + '] ' + channel_name[i] + '\n'
@@ -1027,7 +1027,7 @@ while True:
 
 			################ 텍스트채널이동 ################ 
 
-			if msg.content.startswith(command[3]):
+			if message.content.startswith(command[3]):
 				tmp_sayMessage1 = message.content
 				for i in range(len(channel_name)):
 					if  channel_name[i] == str(tmp_sayMessage1[len(command[3])+1:]):
@@ -1400,9 +1400,9 @@ while True:
 			################ 보탐봇 음성채널 소환 ################ 
 
 			if client.get_channel(channel) != msg.channel:
-				if basicSetting[7] == msg.channel:
-					if msg.channel.id == int(basicSetting[7]) : #### 텍스트채널 아이디
-						await msg.channel.fetch_message(msg.id)
+				if basicSetting[7] !="":
+					if msg.channel.id == int(msg.channel.id) : #### 텍스트채널 아이디
+						message = await msg.channel.fetch_message(msg.id)
 						if message.content.startswith(command[12]) or message.content.startswith(command[4]):
 							if message.author.voice == None:
 								await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
