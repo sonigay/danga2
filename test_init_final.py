@@ -860,12 +860,14 @@ async def on_ready():
 while True:
 	# 봇이 새로운 메시지를 수신했을때 동작되는 코드입니다.
 	@client.event
-	async def on_message():
-		message = msg
+	async def on_message(message):
+		msg = message
 		if msg.author.bot: #만약 메시지를 보낸사람이 봇일 경우에는
 			return None #동작하지 않고 무시합니다.
 
 		global channel
+		global msg
+		global message
 		
 		global basicSetting
 		global bossData
