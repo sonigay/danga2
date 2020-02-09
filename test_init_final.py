@@ -866,8 +866,6 @@ while True:
 			return None #동작하지 않고 무시합니다.
 
 		global channel
-		global msg
-		global message
 		
 		global basicSetting
 		global bossData
