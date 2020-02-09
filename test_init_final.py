@@ -728,7 +728,7 @@ async def FixedBossDateSave():
 	repo.update_file(contents.path, "bossDB", FixedBossDateDataSTR, contents.sha)
 
 #음성채널 입장
-async def JointheVC(VCchannel):
+async def JointheVC(VCchannel, TXchannel):
 	global chkvoicechannel
 	global voice_client1
 
@@ -745,7 +745,7 @@ async def JointheVC(VCchannel):
 			voice_client1 = await VCchannel.connect(reconnect=True)
 			#await PlaySound(voice_client1, './sound/hello.mp3')
 	else:
-		await msg.channel.send('음성채널에 먼저 들어가주세요.', tts=False)
+		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
 
 #사다리함수		
 async def LadderFunc(number, ladderlist, channelVal):
@@ -1431,7 +1431,7 @@ while True:
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
 						
 
-					await JointheVC(voice_channel)
+					await JointheVC(voice_channel, channel)
 					await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
