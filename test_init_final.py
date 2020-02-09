@@ -191,8 +191,7 @@ def init():
 	del(fixed_inputData[0])
 	
 	
-@client.event
-async def on_message(msg):
+
 	
 	############## 보탐봇 초기 설정 리스트 #####################
 	basicSetting.append(inputData[0][11:])     #basicSetting[0] : timezone
@@ -202,7 +201,7 @@ async def on_message(msg):
 	basicSetting.append(inputData[9][14:16])   #basicSetting[4] : restarttime 시
 	basicSetting.append(inputData[9][17:])     #basicSetting[5] : restarttime 분
 	basicSetting.append(inputData[1][15:])     #basicSetting[6] : voice채널 ID
-	basicSetting.append(msg.channel.id)     #basicSetting[7] : text채널 ID
+	basicSetting.append(inputData[2][14:])     #basicSetting[7] : text채널 ID
 	basicSetting.append(inputData[3][16:])     #basicSetting[8] : 사다리 채널 ID
 	basicSetting.append(inputData[8][14:])     #basicSetting[9] : !ㅂ 출력 수
 	basicSetting.append(inputData[12][11:])    #basicSetting[10] : json 파일명
@@ -917,7 +916,7 @@ while True:
 		
 		if chflg == 0 :
 			channel = int(msg.channel.id) #channel이라는 변수에는 메시지를 받은 채널의 ID를 담습니다
-			if basicSetting[7] == message.channel.id:
+			if basicSetting[7] == "":
 				inidata_textCH = repo.get_contents("test_setting.ini")
 				file_data_textCH = base64.b64decode(inidata_textCH.content)
 				file_data_textCH = file_data_textCH.decode('utf-8')
