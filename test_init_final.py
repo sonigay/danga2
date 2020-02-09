@@ -992,8 +992,8 @@ while True:
 								await user.send(embed=embed, tts=False)
 								await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 								await PlaySound(voice_client1, './sound/say.wav')
-			else :
-				message = await client.get_channel(channel).fetch_message(msg.id)
+		#	else :
+		#		message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
 		
