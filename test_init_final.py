@@ -964,7 +964,7 @@ while True:
 						await LadderFunc(num_cong, ladder, msg.channel)
 			
 			##################################
-			if basicSetting[11] != "":
+			if basicSetting[11] == msg.channel:
 				if msg.channel.id == int(basicSetting[11]) : #### 정산채널 채널ID 값넣으면 됨
 					message = await msg.channel.fetch_message(msg.id)
 
