@@ -1431,7 +1431,7 @@ while True:
 						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
 						
 
-					await JointheVC(voice_channel, channel)
+					await JointheVC(voice_channel)
 					await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
