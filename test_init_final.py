@@ -1049,6 +1049,7 @@ while True:
 					
 				await client.get_channel(channel).send('< ' + client.get_channel(channel).name + ' 이동완료>', tts=False)
 			
+			message = message
 			hello = message.content
 
 			##################################
