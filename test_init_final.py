@@ -1052,13 +1052,14 @@ while True:
 				await client.get_channel(channel).send('< ' + client.get_channel(channel).name + ' 이동완료>', tts=False)
 			
 			
-			hello = message.content
+			
 
 			##################################
 
 			for i in range(bossNum):
 				################ 보스 컷처리 ################ 
 				if message.content.startswith(bossData[i][0] +'컷'):
+					hello = message.content
 					if hello.find('  ') != -1 :
 						bossData[i][6] = hello[hello.find('  ')+2:]
 						hello = hello[:hello.find('  ')]
