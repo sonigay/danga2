@@ -836,7 +836,7 @@ async def on_ready():
 
 	await dbLoad()
 	
-	if basicSetting[6] != "" and basicSetting[7] != "" :
+	if basicSetting[6] != "" :
 		#print ('join channel')
 		await JointheVC(client.get_channel(basicSetting[6]), client.get_channel(basicSetting[7]))
 		channel = basicSetting[7]
@@ -917,26 +917,26 @@ while True:
 		
 		if chflg == 0 :
 			channel = int(msg.channel.id) #channel이라는 변수에는 메시지를 받은 채널의 ID를 담습니다
-			if basicSetting[7] == "":
-				inidata_textCH = repo.get_contents("test_setting.ini")
-				file_data_textCH = base64.b64decode(inidata_textCH.content)
-				file_data_textCH = file_data_textCH.decode('utf-8')
-				inputData_textCH = file_data_textCH.split('\n')
+#			if basicSetting[7] == "":
+#				inidata_textCH = repo.get_contents("test_setting.ini")
+#				file_data_textCH = base64.b64decode(inidata_textCH.content)
+#				file_data_textCH = file_data_textCH.decode('utf-8')
+#				inputData_textCH = file_data_textCH.split('\n')
 				
-				for i in range(len(inputData_textCH)):
-					if inputData_textCH[i] == 'textchannel = \r':
-						inputData_textCH[i] = 'textchannel = ' + str(channel) + '\r'
-						basicSetting[7] = channel
+#				for i in range(len(inputData_textCH)):
+#					if inputData_textCH[i] == 'textchannel = \r':
+#						inputData_textCH[i] = 'textchannel = ' + str(channel) + '\r'
+#						basicSetting[7] = channel
 						#print ('======', inputData_text[i])
 				
-				result_textCH = '\n'.join(inputData_textCH)
+#				result_textCH = '\n'.join(inputData_textCH)
 				
 				#print (result_textCH)
 				
-				contents = repo.get_contents("test_setting.ini")
-				repo.update_file(contents.path, "test_setting", result_textCH, contents.sha)
+#				contents = repo.get_contents("test_setting.ini")
+#				repo.update_file(contents.path, "test_setting", result_textCH, contents.sha)
 
-			print('< 텍스트채널 [' + client.get_channel(channel).name + '] 접속완료>')
+#			print('< 텍스트채널 [' + client.get_channel(channel).name + '] 접속완료>')
 				
 			if basicSetting[6] != "":
 				#print ('join channel')
