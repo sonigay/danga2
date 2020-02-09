@@ -832,7 +832,7 @@ async def on_ready():
 	
 	if basicSetting[6] != "" and basicSetting[7] != "" :
 		#print ('join channel')
-		await JointheVC(client.get_channel(basicSetting[6]))
+		await JointheVC(client.get_channel(basicSetting[6]), client.get_channel(basicSetting[7]))
 		channel = basicSetting[7]
 		chflg = 1
 
