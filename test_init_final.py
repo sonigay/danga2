@@ -1922,7 +1922,6 @@ while True:
 					wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
 					wks.update_acell(basicSetting[15], SearchID)
-					user = client.get_user(message.author.id)
 
 					result = wks.acell(basicSetting[16]).value
 					tmp_sayMessage = message.content
@@ -1933,7 +1932,7 @@ while True:
 							description= '```' + SearchID + ' 단가는 ' + result + '```',
 							color=0xddffff
 							)
-					await user.send(embed=embed, tts=False)
+					await client.get_channel(msg.channel.id).send(embed=embed, tts=False)
 					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
 
