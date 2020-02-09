@@ -917,7 +917,7 @@ while True:
 		
 		if chflg == 0 :
 			channel = int(msg.channel.id) #channel이라는 변수에는 메시지를 받은 채널의 ID를 담습니다
-			if basicSetting[7] == "":
+			if basicSetting[7] == message.channel.id:
 				inidata_textCH = repo.get_contents("test_setting.ini")
 				file_data_textCH = base64.b64decode(inidata_textCH.content)
 				file_data_textCH = file_data_textCH.decode('utf-8')
