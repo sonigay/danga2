@@ -865,7 +865,6 @@ while True:
 			return None #동작하지 않고 무시합니다.
 
 		global channel
-		global message
 		
 		global basicSetting
 		global bossData
@@ -998,7 +997,7 @@ while True:
 			
 			################ 텍스트 정보확인 ################ 
 
-			if message.content == command[2]:
+			if msg.content == command[2]:
 				ch_information = ''
 				for i in range(len(channel_name)):
 					ch_information += '[' + channel_id[i] + '] ' + channel_name[i] + '\n'
@@ -1027,7 +1026,7 @@ while True:
 
 			################ 텍스트채널이동 ################ 
 
-			if message.content.startswith(command[3]):
+			if msg.content.startswith(command[3]):
 				tmp_sayMessage1 = message.content
 				for i in range(len(channel_name)):
 					if  channel_name[i] == str(tmp_sayMessage1[len(command[3])+1:]):
