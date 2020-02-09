@@ -219,7 +219,7 @@ def init():
 		basicSetting[6] = int(basicSetting[6])
 		
 	if basicSetting[7] != "":
-		basicSetting[7] = int(basicSetting[7])
+		basicSetting[7] = int(message.channel.id)
 
 	tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
 	
