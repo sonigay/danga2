@@ -990,7 +990,7 @@ while True:
 										description= '```' + SearchID + ' 단가는 ' + result + '```',
 										color=0xddffff
 										)
-								await client.send_message(message.channel, embed=embed, tts=False)
+								await client.get_channel(channel).send(embed=embed, tts=False)
 								await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 								await PlaySound(voice_client1, './sound/say.wav')
 		#	else :
@@ -1446,7 +1446,7 @@ while True:
 						
 
 								await JointheVC(voice_channel, channel)
-								await client.send_message(message.channel, '< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)
+								await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 접속완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
 						
