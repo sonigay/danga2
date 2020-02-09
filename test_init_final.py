@@ -997,7 +997,7 @@ while True:
 			
 			################ 텍스트 정보확인 ################ 
 		@client.event
-		async def on_message(msg) and def on_message(message):			
+		async def on_message(message):			
 
 			if msg.content == command[2]:
 				ch_information = ''
