@@ -1947,16 +1947,16 @@ async def on_message(msg):
 					
 					
 					
-	client.loop.create_task(task())
-	try:
-		client.loop.run_until_complete(client.start(access_token))
-	except SystemExit:
-		handle_exit()
-	except KeyboardInterrupt:
-		handle_exit()
-	#client.loop.close()
-	#print("Program ended")
-	#break
+		client.loop.create_task(task())
+		try:
+			client.loop.run_until_complete(client.start(access_token))
+		except SystemExit:
+			handle_exit()
+		except KeyboardInterrupt:
+			handle_exit()
+		#client.loop.close()
+		#print("Program ended")
+		#break
 
-	print("Bot restarting")
-	client = discord.Client(loop=client.loop)
+		print("Bot restarting")
+		client = discord.Client(loop=client.loop)
