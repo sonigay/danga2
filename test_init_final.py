@@ -996,6 +996,8 @@ while True:
 				message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
+@client.event
+async def on_message(msg):			
 
 			if msg.content == command[2]:
 				ch_information = ''
@@ -1049,7 +1051,7 @@ while True:
 					
 				await client.get_channel(channel).send('< ' + client.get_channel(channel).name + ' 이동완료>', tts=False)
 			
-			message = message
+			
 			hello = message.content
 
 			##################################
