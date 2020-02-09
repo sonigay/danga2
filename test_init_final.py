@@ -979,6 +979,7 @@ while True:
 								wks = gc.open(basicSetting[12]).worksheet(basicSetting[14])
 
 								wks.update_acell(basicSetting[15], SearchID)
+								channel = message.channel
 
 								result = wks.acell(basicSetting[16]).value
 								tmp_sayMessage = message.content
@@ -1431,6 +1432,7 @@ while True:
 									file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
 									file_data_voiceCH = file_data_voiceCH.decode('utf-8')
 									inputData_voiceCH = file_data_voiceCH.split('\n')
+									channel = message.channel
 
 									for i in range(len(inputData_voiceCH)):
 										if inputData_voiceCH[i] == 'voicechannel = ' + str(basicSetting[6]) + '\r':
