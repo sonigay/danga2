@@ -996,8 +996,8 @@ while True:
 				message = await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
-@client.event
-async def on_message(msg):			
+		@client.event
+		async def on_message(msg):			
 
 			if msg.content == command[2]:
 				ch_information = ''
@@ -1938,25 +1938,17 @@ async def on_message(msg):
 					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
 
-					
-					
 
-					
-					
-					
-					
-					
-					
-		client.loop.create_task(task())
-		try:
-			client.loop.run_until_complete(client.start(access_token))
-		except SystemExit:
-			handle_exit()
-		except KeyboardInterrupt:
-			handle_exit()
-		#client.loop.close()
-		#print("Program ended")
-		#break
+	client.loop.create_task(task())
+	try:
+		client.loop.run_until_complete(client.start(access_token))
+	except SystemExit:
+		handle_exit()
+	except KeyboardInterrupt:
+		handle_exit()
+	#client.loop.close()
+	#print("Program ended")
+	#break
 
-		print("Bot restarting")
-		client = discord.Client(loop=client.loop)
+	print("Bot restarting")
+	client = discord.Client(loop=client.loop)
