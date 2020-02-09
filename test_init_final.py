@@ -728,7 +728,7 @@ async def FixedBossDateSave():
 	repo.update_file(contents.path, "bossDB", FixedBossDateDataSTR, contents.sha)
 
 #음성채널 입장
-async def JointheVC(VCchannel, TXchannel):
+async def JointheVC(VCchannel):
 	global chkvoicechannel
 	global voice_client1
 
@@ -745,7 +745,7 @@ async def JointheVC(VCchannel, TXchannel):
 			voice_client1 = await VCchannel.connect(reconnect=True)
 			#await PlaySound(voice_client1, './sound/hello.mp3')
 	else:
-		await TXchannel.send('음성채널에 먼저 들어가주세요.', tts=False)
+		await msg.channel.send('음성채널에 먼저 들어가주세요.', tts=False)
 
 #사다리함수		
 async def LadderFunc(number, ladderlist, channelVal):
@@ -1927,21 +1927,7 @@ while True:
 
 					
 					
-			if message.content.startswith('!정책표'):
-				SearchID = hello[len('!정책표')+1:]
-				gc = gspread.authorize(credentials)
-				wks = gc.open('VIP정책수정').worksheet('시트23')
-				user = client.get_user(message.author.id)
-				wks2 = wks.get_all_values()
-				wks2 = pd.DataFrame(wks2, columns=wks2[0])
-				wks2 = wks2.reindex(wks2,index.drop(0))
-				
 
-				await user.send(wks2, tts=False)
-					
-					
-					
-					
 					
 					
 					
