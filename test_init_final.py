@@ -993,11 +993,10 @@ while True:
 								await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 								await PlaySound(voice_client1, './sound/say.wav')
 			else :
-				message = await client.get_channel(channel).fetch_message(msg.id)
+				await client.get_channel(channel).fetch_message(msg.id)
 			
 			################ 텍스트 정보확인 ################ 
-		@client.event
-		async def on_message(message):			
+		
 
 			if msg.content == command[2]:
 				ch_information = ''
