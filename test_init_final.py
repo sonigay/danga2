@@ -1396,48 +1396,52 @@ while True:
 				
 			################ 보탐봇 음성채널 소환 ################ 
 
-			if message.content.startswith(command[12]) or message.content.startswith(command[4]):
-				if message.author.voice == None:
-					await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
-				else:
-					voice_channel = message.author.voice.channel
+			
+			if basicSetting[7] == msg.channel:
+				if msg.channel.id == int(basicSetting[7]) : #### 텍스트채널 아이디
+					message = await msg.channel.fetch_message(msg.id)
+					if message.content.startswith(command[12]) or message.content.startswith(command[4]):
+						if message.author.voice == None:
+							await client.get_channel(channel).send('음성안내는 각 매장에 입장하셔야 안내합니다.', tts=False)
+						else:
+							voice_channel = message.author.voice.channel
 
-					if basicSetting[6] == "":
-						inidata_voiceCH = repo.get_contents("test_setting.ini")
-						file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
-						file_data_voiceCH = file_data_voiceCH.decode('utf-8')
-						inputData_voiceCH = file_data_voiceCH.split('\n')
+							if basicSetting[6] == "":
+								inidata_voiceCH = repo.get_contents("test_setting.ini")
+								file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
+								file_data_voiceCH = file_data_voiceCH.decode('utf-8')
+								inputData_voiceCH = file_data_voiceCH.split('\n')
 
-						for i in range(len(inputData_voiceCH)):
-							if inputData_voiceCH[i] == 'voicechannel = \r':
-								inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
-								basicSetting[6] = int(voice_channel.id)
+								for i in range(len(inputData_voiceCH)):
+									if inputData_voiceCH[i] == 'voicechannel = \r':
+										inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
+										basicSetting[6] = int(voice_channel.id)
 
-						result_voiceCH = '\n'.join(inputData_voiceCH)
+								result_voiceCH = '\n'.join(inputData_voiceCH)
 
-						contents = repo.get_contents("test_setting.ini")
-						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
+								contents = repo.get_contents("test_setting.ini")
+								repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
 						
 
-					elif basicSetting[6] != int(voice_channel.id):
-						inidata_voiceCH = repo.get_contents("test_setting.ini")
-						file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
-						file_data_voiceCH = file_data_voiceCH.decode('utf-8')
-						inputData_voiceCH = file_data_voiceCH.split('\n')
+							elif basicSetting[6] != int(voice_channel.id):
+								inidata_voiceCH = repo.get_contents("test_setting.ini")
+								file_data_voiceCH = base64.b64decode(inidata_voiceCH.content)
+								file_data_voiceCH = file_data_voiceCH.decode('utf-8')
+								inputData_voiceCH = file_data_voiceCH.split('\n')
 
-						for i in range(len(inputData_voiceCH)):
-							if inputData_voiceCH[i] == 'voicechannel = ' + str(basicSetting[6]) + '\r':
-								inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
-								basicSetting[6] = int(voice_channel.id)
+								for i in range(len(inputData_voiceCH)):
+									if inputData_voiceCH[i] == 'voicechannel = ' + str(basicSetting[6]) + '\r':
+										inputData_voiceCH[i] = 'voicechannel = ' + str(voice_channel.id) + '\r'
+										basicSetting[6] = int(voice_channel.id)
 
-						result_voiceCH = '\n'.join(inputData_voiceCH)
-						contents = repo.get_contents("test_setting.ini")
+								result_voiceCH = '\n'.join(inputData_voiceCH)
+								contents = repo.get_contents("test_setting.ini")
 						
-						repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
+								repo.update_file(contents.path, "test_setting", result_voiceCH, contents.sha)
 						
 
-					await JointheVC(voice_channel, channel)
-					await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)
+							await JointheVC(voice_channel, channel)
+							await client.get_channel(channel).send('< 거래처 [' + client.get_channel(voice_channel.id).name + '] 이동완료>', tts=False)
 			
 			################ 저장된 정보 초기화 ################
 						
