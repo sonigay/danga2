@@ -1927,14 +1927,20 @@ while True:
 					tmp_sayMessage = message.content
 					sayMessage = tmp_sayMessage[len(command[12])+1:]
 
-					embed = discord.Embed(
+					embed1 = discord.Embed(
 							title = ' :signal_strength:  ' + SearchID + ' 안내 ',
 							description= '```' + SearchID + ' 단가는 ' + result + '```',
 							color=0xddffff
 							)
-					await client.get_channel(msg.channel.id).send(embed=embed, tts=False)
+					embed2 = discord.Embed(
+							title = SearchID + ' 단가 조회!! ',
+							description= '```' "조회자:" + message.author.display_name +"\n거래처:" + message.channel.name + ' ```',
+							color=0xddffff
+							)
+					await client.get_channel(msg.channel.id).send(embed=embed1, tts=False)
 					await MakeSound('조회하신,' + sayMessage + '단가는' + result + '', './sound/say')
 					await PlaySound(voice_client1, './sound/say.wav')
+					await client.get_channel(channel).send(embed=embed2, tts=False)
 
 
 	client.loop.create_task(task())
