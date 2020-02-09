@@ -197,7 +197,7 @@ def init():
 	basicSetting.append(inputData[9][14:16])   #basicSetting[4] : restarttime 시
 	basicSetting.append(inputData[9][17:])     #basicSetting[5] : restarttime 분
 	basicSetting.append(inputData[1][15:])     #basicSetting[6] : voice채널 ID
-	basicSetting.append(inputData[2][14:])     #basicSetting[7] : text채널 ID
+	basicSetting.append(message.channel.id)     #basicSetting[7] : text채널 ID
 	basicSetting.append(inputData[3][16:])     #basicSetting[8] : 사다리 채널 ID
 	basicSetting.append(inputData[8][14:])     #basicSetting[9] : !ㅂ 출력 수
 	basicSetting.append(inputData[12][11:])    #basicSetting[10] : json 파일명
@@ -218,7 +218,8 @@ def init():
 	if basicSetting[6] != "":
 		basicSetting[6] = int(basicSetting[6])
 		
-	if basicSetting[7] == int(message.channel.id):
+	if basicSetting[7] != "":
+		basicSetting[7] = int(basicSetting[7])
 
 
 	tmp_now = datetime.datetime.now() + datetime.timedelta(hours = int(basicSetting[0]))
