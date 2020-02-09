@@ -836,7 +836,7 @@ async def on_ready():
 
 	await dbLoad()
 	
-	if basicSetting[6] != "":
+	if basicSetting[6] != "" or basicSetting[7] != "" :
 		#print ('join channel')
 		await JointheVC(client.get_channel(basicSetting[6]), client.get_channel(basicSetting[7]))
 		channel = basicSetting[7]
