@@ -481,7 +481,7 @@ async def task():
 					fixed_bossFlag0[i] = False
 					fixed_bossFlag[i] = False
 					embed = discord.Embed(
-							description= "```" + fixed_bossData[i][0] + '탐 ' + fixed_bossData[i][4] + "```" ,
+							description= "```" + fixed_bossData[i][0] + ' ' + fixed_bossData[i][4] + "```" ,
 							color=0x00ff00
 							)
 					await client.get_channel(channel).send(embed=embed, tts=False)
@@ -523,12 +523,12 @@ async def task():
 					bossTime[i] = now+datetime.timedelta(days=365)
 					if bossData[i][6] != '' :
 						embed = discord.Embed(
-								description= "```" + bossData[i][0] + '탐 ' + bossData[i][4] + '\n<' + bossData[i][6] + '>```' ,
+								description= "```" + bossData[i][0] + ' ' + bossData[i][4] + '\n<' + bossData[i][6] + '>```' ,
 								color=0x00ff00
 								)
 					else :
 						embed = discord.Embed(
-								description= "```" + bossData[i][0] + '탐 ' + bossData[i][4] + "```" ,
+								description= "```" + bossData[i][0] + ' ' + bossData[i][4] + "```" ,
 								color=0x00ff00
 								)
 					await client.get_channel(channel).send(embed=embed, tts=False)
