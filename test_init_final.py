@@ -602,7 +602,7 @@ async def task():
 					await client.get_channel("667241531694120970").send(embed=embed, tts=False)
 					await client.get_channel("667241582411513856").send(embed=embed, tts=False)
 					await client.get_channel("667241378534653983").send(embed=embed, tts=False)
-					await client.get_channel("667240616207450122").send(embed=embed, tts=False)
+					await client.get_channel('667240616207450122').send(embed=embed, tts=False)
 					await client.get_channel("667242915378102293").send(embed=embed, tts=False)
 					await client.get_channel("667243361614168088").send(embed=embed, tts=False)
 					await client.get_channel("667243407227224064").send(embed=embed, tts=False)
