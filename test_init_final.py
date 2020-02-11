@@ -357,6 +357,7 @@ async def task():
 	await client.wait_until_ready()
 
 	global channel
+	global channel1
 	global endTime
 		
 	global basicSetting
