@@ -467,6 +467,7 @@ async def task():
 						if fixed_bossFlag0[i] == False:
 							basicSetting[17] = int(basicSetting[17])
 							fixed_bossFlag0[i] = True
+							await client.get_channel(channel).send("```" + fixed_bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667707237623660569").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667239441307533312").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667241204739604490").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[3] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
@@ -532,6 +533,7 @@ async def task():
 						if fixed_bossFlag[i] == False:
 							basicSetting[17] = int(basicSetting[17])
 							fixed_bossFlag[i] = True
+							await client.get_channel(channel).send("```" + fixed_bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667707237623660569").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667239441307533312").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
 							await client.get_channel("667241204739604490").send("```" + fixed_bossData[i][0] + ' ' + basicSetting[1] + '분 전 ' + fixed_bossData[i][3] +' [' +  fixed_bossTime[i].strftime('%H:%M:%S') + ']```', tts=False)
@@ -601,6 +603,7 @@ async def task():
 							description= "```" + fixed_bossData[i][0] + ' ' + fixed_bossData[i][4] + "```" ,
 							color=0x00ff00
 							)
+					await client.get_channel(channel).send(embed=embed, tts=False)
 					await client.get_channel("667707237623660569").send(embed=embed, tts=False)
 					await client.get_channel("667239441307533312").send(embed=embed, tts=False)
 					await client.get_channel("667241204739604490").send(embed=embed, tts=False)
