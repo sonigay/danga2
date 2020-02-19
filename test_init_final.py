@@ -2112,65 +2112,65 @@ while True:
 					
 			################ 비하인드 ################ 
 
-#			if message.content.startswith(command[4]):
-#				if basicSetting[12] !=""  :
-#					SearchID = hello[len(command[4])+1:]
-#					gc = gspread.authorize(credentials)
-#					wks = gc.open(basicSetting[12]).worksheet('비하인드')
+			if message.content.startswith(command[4]):
+				if basicSetting[12] !=""  :
+					SearchID = hello[len(command[4])+1:]
+					gc = gspread.authorize(credentials)
+					wks = gc.open(basicSetting[12]).worksheet('비하인드')
 
-#					wks.update_acell('A1', SearchID)
+					wks.update_acell('A1', SearchID)
 
-#					result1 = wks.acell('B1').value
-#					result2 = wks.acell('B2').value
-#					result3 = wks.acell('B3').value
-#					result4 = wks.acell('B4').value
-#					result5 = wks.acell('B5').value
-#					result6 = wks.acell('B6').value
-#					result7 = wks.acell('B7').value
-#					result8 = wks.acell('B8').value
-#					result9 = wks.acell('B9').value
-#					result10 = wks.acell('B10').value
-#					tmp_sayMessage = message.content
-#					sayMessage = tmp_sayMessage[len(command[12])+1:]
+					result1 = wks.acell('B1').value
+					result2 = wks.acell('B2').value
+					result3 = wks.acell('B3').value
+					result4 = wks.acell('B4').value
+					result5 = wks.acell('B5').value
+					result6 = wks.acell('B6').value
+					result7 = wks.acell('B7').value
+					result8 = wks.acell('B8').value
+					result9 = wks.acell('B9').value
+					result10 = wks.acell('B10').value
+					tmp_sayMessage = message.content
+					sayMessage = tmp_sayMessage[len(command[12])+1:]
 
-#					embed1 = discord.Embed(
-#							title = '비하인드 안내 ',
-#							description= '**```css\n' + result1 + '\n' + result2 + '\n' + result3 + '\n' + result4 + '\n' + result5 + '\n' + result6 + '\n' + result7 + '\n' + result8 + '\n' + result9 + '\n' + result10 + '\n' + '```**',
-#							color=0xddffff
-#							)
-#					embed2 = discord.Embed(
-#							title = '비하인드 음성 안내중... ',
-#							description= '**```fix\n먼저 음성방에 입장을 하셔야 합니다.\nPC에서 들리지 않는다면 휴대폰에서 이어폰을 \n이용해주세요.\n\n음성파일 생성중입니다.\n10초안에 끝낼게요 조금만 기다려주세요...\n파일이 생성되면 안내를 시작합니다.\n이어폰을 꽂아주시고 스피커 볼륨을 키워주세요.```**',
-#							color=0xddffff
+					embed1 = discord.Embed(
+							title = '비하인드 안내 ',
+							description= '**```css\n' + result1 + '\n' + result2 + '\n' + result3 + '\n' + result4 + '\n' + result5 + '\n' + result6 + '\n' + result7 + '\n' + result8 + '\n' + result9 + '\n' + result10 + '\n' + '```**',
+							color=0xddffff
+							)
+					embed2 = discord.Embed(
+							title = '비하인드 음성 안내중... ',
+							description= '**```fix\n먼저 음성방에 입장을 하셔야 합니다.\nPC에서 들리지 않는다면 휴대폰에서 이어폰을 \n이용해주세요.\n\n음성파일 생성중입니다.\n10초안에 끝낼게요 조금만 기다려주세요...\n파일이 생성되면 안내를 시작합니다.\n이어폰을 꽂아주시고 스피커 볼륨을 키워주세요.```**',
+							color=0xddffff
 							)					
-#					embed3 = discord.Embed(
-#							title = SearchID + ' 비하인드 조회!! ',
-#							description= '```' "조회자:" + message.author.display_name +"\n거래처:" + message.channel.name + ' ```',
-#							color=0xddffff
-#							)
-##					await client.get_channel(msg.channel.id).send(embed=embed1, tts=False)
-#					await client.get_channel(msg.channel.id).send(embed=embed2, tts=False)
-#					await MakeSound(" ," + result1, './sound/say')
-#					await MakeSound(" ," + result2, './sound/say2')
-#					await MakeSound(" ," + result3, './sound/say3')
-##					await MakeSound(" ," + result4, './sound/say4')
-#					await MakeSound(" ," + result5, './sound/say5')
-#					await MakeSound(" ," + result6, './sound/say6')
-#					await MakeSound(" ," + result7, './sound/say7')
-#					await MakeSound(" ," + result8, './sound/say8')
-#					await MakeSound(" ," + result9, './sound/say9')
-#					await MakeSound(" ," + result10, './sound/say10')
-#					await PlaySound(voice_client1, './sound/say.wav')
-#					await PlaySound(voice_client1, './sound/say2.wav')
-#					await PlaySound(voice_client1, './sound/say3.wav')
-#					await PlaySound(voice_client1, './sound/say4.wav')
-#					await PlaySound(voice_client1, './sound/say5.wav')
-#					await PlaySound(voice_client1, './sound/say6.wav')
-#					await PlaySound(voice_client1, './sound/say7.wav')
-#					await PlaySound(voice_client1, './sound/say8.wav')
-#					await PlaySound(voice_client1, './sound/say9.wav')
-#					await PlaySound(voice_client1, './sound/say10.wav')
-#					await client.get_channel(channel).send(embed=embed3, tts=False)					
+					embed3 = discord.Embed(
+							title = SearchID + ' 비하인드 조회!! ',
+							description= '```' "조회자:" + message.author.display_name +"\n거래처:" + message.channel.name + ' ```',
+							color=0xddffff
+							)
+					await client.get_channel(msg.channel.id).send(embed=embed1, tts=False)
+					await client.get_channel(msg.channel.id).send(embed=embed2, tts=False)
+					await MakeSound(" ," + result1, './sound/say')
+					await MakeSound(" ," + result2, './sound/say2')
+					await MakeSound(" ," + result3, './sound/say3')
+					await MakeSound(" ," + result4, './sound/say4')
+					await MakeSound(" ," + result5, './sound/say5')
+					await MakeSound(" ," + result6, './sound/say6')
+					await MakeSound(" ," + result7, './sound/say7')
+					await MakeSound(" ," + result8, './sound/say8')
+					await MakeSound(" ," + result9, './sound/say9')
+					await MakeSound(" ," + result10, './sound/say10')
+					await PlaySound(voice_client1, './sound/say.wav')
+					await PlaySound(voice_client1, './sound/say2.wav')
+					await PlaySound(voice_client1, './sound/say3.wav')
+					await PlaySound(voice_client1, './sound/say4.wav')
+					await PlaySound(voice_client1, './sound/say5.wav')
+					await PlaySound(voice_client1, './sound/say6.wav')
+					await PlaySound(voice_client1, './sound/say7.wav')
+					await PlaySound(voice_client1, './sound/say8.wav')
+					await PlaySound(voice_client1, './sound/say9.wav')
+					await PlaySound(voice_client1, './sound/say10.wav')
+					await client.get_channel(channel).send(embed=embed3, tts=False)					
 					
 
 
