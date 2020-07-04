@@ -918,6 +918,7 @@ async def task():
 
 		await asyncio.sleep(1) # task runs every 60 seconds
 
+		
 #mp3 파일 생성함수(gTTS 이용, 남성목소리)
 async def MakeSound(saveSTR, filename):
 	
